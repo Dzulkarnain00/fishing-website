@@ -6,5 +6,5 @@ const FishermenSchema = new mongoose.Schema({
     password: String,
 })
 
-const FishermenModel = mongoose.model('fishermen', FishermenSchema);
-module.exports = FishermenModel;
+const FishermenModel = mongoose.model('fisherman', FishermenSchema);
+module.exports = FishermenModel
