@@ -14,8 +14,10 @@ function Login() {
         axios.post('http://localhost:3001/login', {email, password})
             .then (res => {
                 console.log(res)
-                if(res.data === "Success") {
-                    navigate('/home')
+                if(res.data.message === "Success") {
+                    localStorage.setItem('accessToken', res.data.accessToken);
+                    localStorage.setItem('refreshToken', res.data.refreshToken);
+                    navigate('/home');
                 }
             })
             .catch(err => console.log(err))
@@ -57,7 +59,7 @@ function Login() {
                     </button>
                 </form>
                 <p className="text-center mt-2">Don't have an account?</p>
-                <Link to="/login" className="btn btn-light border w-100 rounded-0 bg-light text-decoration-none">
+                <Link to="/register" className="btn btn-light border w-100 rounded-0 bg-light text-decoration-none">
                     Sign Up
                 </Link>
             </div>

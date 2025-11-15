@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb://localhost:27017/Fishermen")
+mongoose.connect("mongodb://localhost:27017/NEW")
 
 app.post("/login", (req, res) => {
     const {email, password} = req.body;
@@ -28,7 +28,8 @@ app.post("/login", (req, res) => {
 app.post('/register', (req, res) => {
     FishermenModel.create(req.body)
         .then(fisherman => res.json(fisherman))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
+        res.status(400).json({ error: err.message });
 })
 
 app.listen(3001, () => {
