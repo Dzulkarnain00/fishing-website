@@ -11,13 +11,22 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (!email || !password) {
+            alert("Please enter both email and password");
+            return;
+        }
         axios.post('http://localhost:3001/login', {email, password})
             .then (res => {
                 console.log(res)
                 if(res.data.message === "Success") {
-                    localStorage.setItem('accessToken', res.data.accessToken);
-                    localStorage.setItem('refreshToken', res.data.refreshToken);
-                    navigate('/home');
+                    const {accessToken, refreshToken} = res.data;
+                    localStorage.setItem('accessToken', accessToken);
+                    localStorage.setItem('refreshToken', refreshToken);
+                    localStorage.setItem('userEmail', email);
+                    navigate('/');
+                } else {
+                    alert(res.data.message || "Login failed");
                 }
             })
             .catch(err => console.log(err))
@@ -38,8 +47,7 @@ function Login() {
                             className="form-control rounded-0"
                             autoComplete="off"
                             placeholder="Enter Email"
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
+                            onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="email">
@@ -51,8 +59,7 @@ function Login() {
                             className="form-control rounded-0"
                             autoComplete="off"
                             placeholder="Enter Password"
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
+                            onChange={(e) => setPassword(e.target.value)}/>
                     </div>
                     <button type="submit" className="btn btn-success w-100 rounded-0">
                         Login

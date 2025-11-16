@@ -33,8 +33,7 @@ function Signup(){
                             className="form-control rounded-0"
                             autoComplete="off"
                             placeholder="Enter Name"
-                            onChange={(e) => setName(e.target.value)}
-                        />
+                            onChange={(e) => setName(e.target.value)}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="email">
@@ -46,8 +45,7 @@ function Signup(){
                             className="form-control rounded-0"
                             autoComplete="off"
                             placeholder="Enter Email"
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
+                            onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="email">
@@ -59,8 +57,7 @@ function Signup(){
                             className="form-control rounded-0"
                             autoComplete="off"
                             placeholder="Enter Password"
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
+                            onChange={(e) => setPassword(e.target.value)}/>
                     </div>
                     <button type="submit" className="btn btn-success w-100 rounded-0">
                         Register

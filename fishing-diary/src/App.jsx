@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Signup from './Signup.jsx'
 import Login from './Login.jsx'
@@ -12,7 +12,7 @@ function App() {
             <Routes>
                 <Route path='/register' element={<Signup/>}/>
                 <Route path='/login' element={<Login/>}/>
-                <Route path='/home' element={<Home/>}/>
+                <Route path='/' element={<Home/>}/>
             </Routes>
         </BrowserRouter>
     </div>
