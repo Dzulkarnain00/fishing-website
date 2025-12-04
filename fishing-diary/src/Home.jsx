@@ -65,14 +65,24 @@ function Home() {
     };
 
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center vh-100 bg-primary text-white">
-            <div className="bg-light text-dark p-5 rounded shadow text-center w-50">
+        <div className="d-flex flex-column justify-content-center align-items-center vh-100 bg-light text-white">
+            <div className="bg-white text-dark p-5 rounded shadow text-center w-50">
                 <h1 className="mb-3">Welcome Back, {userEmail}!</h1>
                 <p className="lead">Glad to see you on your fishing dashboard</p>
-                <button className="btn btn-danger mt-4" onClick={handleLogout}>Logout</button>
+                <button className="btn btn-danger mt-4 ms-2" onClick={handleLogout}>Logout</button>
+                <button className="btn btn-info mt-4 ms-2" onClick={() => navigate('/map')}>
+                    View Map
+                </button>
+                <button
+                    className="btn btn-primary mt-4 ms-2"
+                    onClick={() => navigate('/tides')}
+                >
+                    View Tide Chart
+                </button>
+
             </div>
 
-            <div className="justify-content-between bg-white rounded p-3 mt-5 w-75 mb-2">
+            <div className="justify-content-between bg-white shadow rounded p-3 mt-5 w-75 mb-2">
                 <div className="d-flex justify-content-between align-items-center w-100 text-dark mb-3">
                     <h3>Records</h3>
                     <button className="btn btn-success" onClick={() => {setShowForm(!showForm);
